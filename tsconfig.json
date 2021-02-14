@@ -5,10 +5,9 @@
     "allowJs": true,                       /* Allow javascript files to be compiled. */
     "checkJs": true,                       /* Report errors in .js files. */
     "declaration": true,                   /* Generates corresponding '.d.ts' file. */
-    "outDir": "./",                        /* Redirect output structure to the directory. */
-    "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
-    "noEmit": false,                        /* Do not emit outputs. */
-    "strict": true,                           /* Enable all strict type-checking options. */
+    "outDir": "./dist",                        /* Redirect output structure to the directory. */
+    "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "strict": true,      
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "types": ["jest"],                           /* Type declaration files to be included in compilation. */
