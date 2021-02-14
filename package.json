@@ -5,8 +5,9 @@
   "main": "dist/index.js",
   "homepage": "https://github.com/jhony-24/fly-jss",
   "scripts": {
-    "dev": "",
-    "linter": "npx eslint --fix ./"
+    "build": "tsc",
+    "linter": "npx eslint --fix ./",
+    "test" : "npx jest"
   },
   "keywords": [
     "CSS in JS",
