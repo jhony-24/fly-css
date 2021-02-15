@@ -1,5 +1,7 @@
 {
-	"hooks": {
-		"pre-commit": "npm run lint:fix"
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint:fix"
+		}
 	}
 }
