@@ -6,7 +6,7 @@
 	"homepage": "https://github.com/jhony-24/fly-jss",
 	"scripts": {
 		"build": "npx webpack",
-		"dev": "npx nodemon --watch ./src/index.ts --exec ts-node",
+		"dev": "npx nodemon src/index.ts",
 		"lint": "npx eslint ./src/**/*",
 		"lint:fix": "npx eslint --fix ./src/**/*",
 		"test": "npx jest",

@@ -1,4 +1,4 @@
-import { getUniqueAtomicClassNames, getUniqueKeysFromArray } from "../utils";
+import { getAtomicClassNames, getUniqueKeysFromArray } from "../utils";
 
 describe('Utils of fly-jss', () => {
 
@@ -37,22 +37,28 @@ describe('Utils of fly-jss', () => {
 		})
 
 		
-		it('should return total classNames equal to total params of object values', () => {						
+		it('should return total classNames equal to total params of object values', () => {		
+			/**
+			 * keys title: 2
+			 * keys button: 2
+			 * total keys when i put params: 4
+			 */				
 			const styles = {
 				title : {
 					color: "red",
+					border : "2px solid blue",
 				},
 				button : {
 					background : "green",
+					color: "red",
 				}
 			}
 			const getParams = [
 				"title",
 				"button"
 			]
-			const classNames = getUniqueAtomicClassNames(styles,...getParams);
-			expect(classNames.split(' ')).toHaveLength(2);
-		
+			const classNames = getAtomicClassNames(styles,...getParams);
+			expect(classNames.split(' ')).toHaveLength(4);		
 		});
 
 		it('should return one className of title', () => {
@@ -64,7 +70,7 @@ describe('Utils of fly-jss', () => {
 			const getParams = [
 				"title",
 			]
-			const classNames = getUniqueAtomicClassNames(styles,...getParams);
+			const classNames = getAtomicClassNames(styles,...getParams);
 			expect(classNames.split(' ')).toHaveLength(1);
 		});
 
@@ -78,8 +84,8 @@ describe('Utils of fly-jss', () => {
 				false,
 				null
 			]
-			const classNames = getUniqueAtomicClassNames(styles,...getParams);		
-			expect(classNames).toBe('');	
+			const classNames = getAtomicClassNames(styles,...getParams);		
+			expect(classNames).toHaveLength(0);	
 		});
 
 })

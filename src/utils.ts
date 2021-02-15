@@ -1,9 +1,9 @@
 import cxs from "cxs";
-import {ItemClassName} from "./types";
+import { ItemClassName } from "./types";
 
 export function getUniqueKeysFromArray(
 	classNames:
-		| (string | boolean | undefined)[]
+		| (string | boolean | undefined | unknown)[]
 		| undefined
 		| null
 		| Record<string, unknown>
@@ -24,18 +24,18 @@ export function getUniqueWordsFromString(value: string): string {
 	return getUniqueKeysFromArray(splitWords).join(" ");
 }
 
-export function getUniqueAtomicClassNames<T, A>(
+export function getAtomicClassNames<T, A>(
 	cssObject: ItemClassName<T>,
 	...keys: A[]
 ): string {
-	const uniqueClassnames = getUniqueKeysFromArray(keys);
-	const atomicClassnames = [];
-	const lenUniqueClassNames = uniqueClassnames.length;
+	const uniqueClassNames = getUniqueKeysFromArray(keys);
+	const atomicClassNames = [];
+	const lenUniqueClassNames = uniqueClassNames.length;
 	let i = 0;
 	while (i < lenUniqueClassNames) {
-		const keyName = cssObject[uniqueClassnames[i]];
-		atomicClassnames.push(cxs(keyName));
+		const keyName = cssObject[uniqueClassNames[i]];
+		atomicClassNames.push(cxs(keyName));
 		i++;
 	}
-	return getUniqueWordsFromString(atomicClassnames.join(" "));
+	return atomicClassNames.join(" ");
 }
