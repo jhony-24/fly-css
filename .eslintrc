@@ -14,8 +14,16 @@
         "sourceType": "module"
     },
     "plugins": [
+        "prettier",
         "@typescript-eslint"
     ],
     "rules": {
+			"arrow-spacing":"error",
+			"no-alert":"error",
+			"rest-spread-spacing" : "warn",
+			"object-curly-spacing" : "warn",
+			"space-before-blocks": "error",
+			"no-duplicate-imports": "error",
+			"no-var": "error"
     }
 }

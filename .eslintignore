@@ -1,3 +1,7 @@
 /node_modules
 dist
 /**/*.test.*
+.all-contributorsrc
+.editorconfig
+.gitignore
+webpack.config.js

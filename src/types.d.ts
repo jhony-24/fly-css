@@ -1,14 +1,14 @@
 /**
  * Return function to receive custom classNames
  */
-type GetClassnames<T> = (
+export type GetClassnames<T> = (
 	...keyClassNames: (T | Record<string, unknown>)[]
 ) => string;
 
 /**
  * Base structure of object Fly-JSS
  */
-interface IFlyJSS {
+export interface IFlyJSS {
 	/**
 	 * Create a instance of a dynamic style
 	 */
