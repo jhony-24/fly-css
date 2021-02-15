@@ -1,7 +1,7 @@
 {
 	"name": "fly-jss",
 	"version": "1.0.0",
-	"description": "Optimized library to create Atomic CSS IN JS inspired in Stylex CSS of Facebook",
+	"description": "Optimized library to create Atomic CSS IN JS inspired in Stylex CSS at Facebook",
 	"main": "dist/index.js",
 	"homepage": "https://github.com/jhony-24/fly-jss",
 	"scripts": {
@@ -10,12 +10,9 @@
 		"lint": "npx eslint ./src/**/*",
 		"lint:fix": "npx eslint --fix ./src/**/*",
 		"test": "npx jest",
-		"test:watch": "npx jest --watch"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run lint:fix"
-		}
+		"test:watch": "npx jest --watch",
+		"postinstall": "husky install",
+		"husky:pre-commit": "npx husky add .husky/pre-commit \"npm run lint:fix\""
 	},
 	"keywords": [
 		"CSS in JS",
