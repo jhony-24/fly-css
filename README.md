@@ -56,24 +56,7 @@ const styles = fly.create({
 function App() {
 	return (
 		<div>
-			<p
-				classNames={styles({
-					title: {
-						fontSize: "3rem",
-					},
-				})}
-			>
-				Title 1
-			</p>
-			<p
-				classNames={styles({
-					title: {
-						fontSize: "2rem",
-					},
-				})}
-			>
-				Title 2
-			</p>
+			<p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
 		</div>
 	);
 }

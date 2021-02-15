@@ -6,4 +6,6 @@ const fly: IFlyJSS = {
 	},
 };
 
+console.log("hola");
+
 export default fly;
