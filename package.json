@@ -12,6 +12,11 @@
 		"test": "npx jest",
 		"test:watch": "npx jest --watch"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint:fix"
+		}
+	},
 	"keywords": [
 		"CSS in JS",
 		"Styled Components",
