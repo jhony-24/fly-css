@@ -24,6 +24,7 @@
 			"object-curly-spacing" : "warn",
 			"space-before-blocks": "error",
 			"no-duplicate-imports": "error",
-			"no-var": "error"
+			"no-var": "error",
+			"@typescript-eslint/explicit-module-boundary-types": "off"
     }
 }

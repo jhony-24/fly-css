@@ -1,7 +1,7 @@
 import { IFlyJSS } from "./types";
 
 const fly: IFlyJSS = {
-	create: (classes) => (keyClassNames) => {
+	create: (classes) => (...keyClassNames) => {
 		return "";
 	},
 };
