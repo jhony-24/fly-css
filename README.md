@@ -42,3 +42,37 @@ function App() {
 }
 export default App;
 ```
+
+```react
+import fly from "fly-jss";
+
+const styles = fly.create({
+    title : ({ fontSize }) => ({
+        fontWeight : "bold",
+        fontSize
+    }),
+});
+
+function App() {
+
+    return(
+        <div>
+            <p classNames={styles({
+                title : {
+                    fontSize : "3rem"
+                }
+            })}>
+                Title 1
+            </p>
+            <p classNames={styles({
+                title : {
+                    fontSize : "2rem"
+                }
+            })}>
+                Title 2
+            </p>
+        </div>
+    )
+}
+export default App;
+```
