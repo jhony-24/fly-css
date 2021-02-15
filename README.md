@@ -16,25 +16,6 @@ $ npm i add fly-jss
 import fly from "fly-jss";
 
 const styles = fly.create({
-<<<<<<< HEAD
- 	primary: {
-		background: "blue",
-		color: "white",
-	},
-	flat: {
-		color: "blue",
-		border: "2px solid blue",
-	},
-});
-
-function App() {
-	return (
-	 <div>
-		<button className={styles("primary","flat")}>PRIMARY AND FLAT BUTTON</button>
-		<button className={styles("flat")}>FLAT BUTTON</button>
-	 </div>
-	);
-=======
  primary: {
 	background: "blue",
 	color: "white",
@@ -52,7 +33,6 @@ function App() {
 	 <button className={styles("flat")}>FLAT BUTTON</button>
   </div>
  );
->>>>>>> 73b72948278f44ae53dea4bed8673033af757369
 }
 export default App;
 ```
@@ -68,19 +48,16 @@ const styles = fly.create({
 });
 
 function App() {
-<<<<<<< HEAD
 	return (
 	 <div>
 		<p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
 	 </div>
 	);
-=======
  return (
 	<div>
 	 <p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
 	</div>
  );
->>>>>>> 73b72948278f44ae53dea4bed8673033af757369
 }
 export default App;
 ```

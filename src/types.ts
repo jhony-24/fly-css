@@ -1,10 +1,10 @@
-import {CSSObject} from "cxs";
+import { CSSObject } from "cxs";
 
 /**
  * Return function to receive custom classNames
  */
 export type GetClassNames<T> = (
-	...keyClassNames: (T | Record<string, unknown>)[]
+  ...keyClassNames: (T | Record<string, unknown>)[]
 ) => string;
 
 /**
@@ -16,8 +16,10 @@ export type ItemClassName<T> = { [key in keyof T]: CSSObject };
  * Base structure of object Fly-JSS
  */
 export interface IFlyJSS {
-	/**
-	 * Create a instance of a dynamic style
-	 */
-	create<T>(classes: ItemClassName<T>): GetClassNames<keyof typeof classes>;
+  /**
+   * Create a instance of a dynamic style
+   */
+  create<T>(
+    classes: ItemClassName<T>
+  ): GetClassNames<keyof typeof classes> & { [key in keyof T]: string };
 }

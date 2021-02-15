@@ -6,14 +6,33 @@ import {
 } from "./utils";
 
 const fly: IFlyJSS = {
-  create: (classes) => (...keyClassNames) => {
-    const uniqueKeysFromString = getUniqueKeysFromArray(keyClassNames);
-    const atomicClassNames = getAtomicClassNames(
-      classes,
-      ...uniqueKeysFromString
-    );
-    return getUniqueWordsFromString(atomicClassNames);
+  create: (classes) => {
+    const classNames = (...keyClassNames) => {
+      const uniqueKeysFromString = getUniqueKeysFromArray(keyClassNames);
+      const atomicClassNames = getAtomicClassNames(
+        classes,
+        ...uniqueKeysFromString
+      );
+
+      return getUniqueWordsFromString(atomicClassNames);
+    };
+
+    if (Object.keys(classes).length) {
+      return classNames;
+    }
+    return {
+      a: "",
+    };
   },
 };
+
+const e = fly.create({
+  a: {
+    color: "red",
+  },
+  b: {
+    color: "blue",
+  },
+});
 
 export default fly;
