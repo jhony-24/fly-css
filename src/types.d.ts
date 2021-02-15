@@ -1,7 +1,7 @@
 /**
  * Return function to receive custom classNames
  */
-type SpreadKeynames<T> = (
+type GetClassnames<T> = (
 	...keyClassNames: (T | Record<string, unknown>)[]
 ) => string;
 
@@ -9,7 +9,10 @@ type SpreadKeynames<T> = (
  * Base structure of object Fly-JSS
  */
 interface IFlyJSS {
+	/**
+	 * Create a instance of a dynamic style
+	 */
 	create<T>(
 		classes: { [key in keyof T]: CSSObject }
-	): SpreadKeynames<keyof typeof classes>;
+	): GetClassnames<keyof typeof classes>;
 }
