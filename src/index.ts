@@ -1,10 +1,18 @@
 import { IFlyJSS } from "./types";
+import {
+	getAtomicClassNames,
+	getUniqueKeysFromArray,
+	getUniqueWordsFromString,
+} from "./utils";
 
 const fly: IFlyJSS = {
 	create: (classes) => (...keyClassNames) => {
-		console.log(classes);
-		console.log(keyClassNames);
-		return "";
+		const uniqueKeysFromString = getUniqueKeysFromArray(keyClassNames);
+		const atomicClassNames = getAtomicClassNames(
+			classes,
+			...uniqueKeysFromString
+		);
+		return getUniqueWordsFromString(atomicClassNames);
 	},
 };
 

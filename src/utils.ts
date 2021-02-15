@@ -1,5 +1,5 @@
 import cxs from "cxs";
-import { ItemClassName } from "./types";
+import {ItemClassName} from "./types";
 
 export function getUniqueKeysFromArray(
 	classNames:

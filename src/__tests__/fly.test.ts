@@ -23,5 +23,9 @@ describe('Fly-jss', () => {
 		expect(styles("title","button").split(" ")).toHaveLength(3);
 	});
 
+	it('should not have class names if receive an false argument', () => {
+		expect(styles(false,null,undefined)).toBe("");	
+	});
+
 
 });
