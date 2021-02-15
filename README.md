@@ -1,6 +1,6 @@
 # <p align="center"> Fly-JSS </p>
 
-Optimized library to create "Atomic CSS IN JS" inspired in **Stylex** at Facebook.
+Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook.
 
 ## Installation
 
@@ -16,7 +16,7 @@ $ npm i add fly-jss
 import fly from "fly-jss";
 
 const styles = fly.create({
-	primary: {
+ 	primary: {
 		background: "blue",
 		color: "white",
 	},
@@ -28,10 +28,10 @@ const styles = fly.create({
 
 function App() {
 	return (
-		<div>
-			<button className={styles("primary")}>PRIMARY BUTTON</button>
-			<button className={styles("flat")}>FLAT BUTTON</button>
-		</div>
+	 <div>
+		<button className={styles("primary","flat")}>PRIMARY AND FLAT BUTTON</button>
+		<button className={styles("flat")}>FLAT BUTTON</button>
+	 </div>
 	);
 }
 export default App;
@@ -49,9 +49,9 @@ const styles = fly.create({
 
 function App() {
 	return (
-		<div>
-			<p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
-		</div>
+	 <div>
+		<p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
+	 </div>
 	);
 }
 export default App;

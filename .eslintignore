@@ -7,3 +7,4 @@ dist
 webpack.config.js
 .editorconfig
 tsconfig.json
+README.md
