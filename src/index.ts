@@ -1,5 +1,6 @@
 import { IFlyJSS } from "./types";
 import {
+  createAtomicClassName,
   getAtomicClassNames,
   getUniqueKeysFromArray,
   getUniqueWordsFromString,
@@ -13,26 +14,28 @@ const fly: IFlyJSS = {
         classes,
         ...uniqueKeysFromString
       );
-
       return getUniqueWordsFromString(atomicClassNames);
     };
 
-    if (Object.keys(classes).length) {
-      return classNames;
-    }
+    const dynamicClassNames = (() => {
+      let dynamicFunctions: any = {};
+      for (const key of Object.keys(classes)) {
+        if (typeof classes[key] === "function") {
+          dynamicFunctions = {
+            [key]: (props) => {
+              return createAtomicClassName(classes[key](props));
+            },
+          };
+        }
+      }
+      return dynamicFunctions;
+    })();
+
     return {
-      a: "",
+      props: classNames,
+      dynamic: dynamicClassNames,
     };
   },
 };
-
-const e = fly.create({
-  a: {
-    color: "red",
-  },
-  b: {
-    color: "blue",
-  },
-});
 
 export default fly;

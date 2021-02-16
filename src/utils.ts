@@ -1,13 +1,13 @@
-import cxs from "cxs";
-import {ItemClassName} from "./types";
+import cxs, { CSSObject } from "cxs";
+import { ItemClassName } from "./types";
 
 export function getUniqueKeysFromArray(
   classNames:
-		| (string | boolean | undefined | unknown)[]
-		| undefined
-		| null
-		| Record<string, unknown>
-		| string
+    | (string | boolean | undefined | unknown)[]
+    | undefined
+    | null
+    | Record<string, unknown>
+    | string
 ) {
   let uniqueKeys = [];
   if (Array.isArray(classNames)) {
@@ -18,6 +18,8 @@ export function getUniqueKeysFromArray(
   }
   return [];
 }
+
+export const createAtomicClassName = (props: CSSObject) => cxs(props);
 
 export function getUniqueWordsFromString(value: string): string {
   const splitWords = value.split(" ");
@@ -33,8 +35,8 @@ export function getAtomicClassNames<T, A>(
   const lenUniqueClassNames = uniqueClassNames.length;
   let i = 0;
   while (i < lenUniqueClassNames) {
-    const keyName = cssObject[uniqueClassNames[i]];
-    atomicClassNames.push(cxs(keyName));
+    const css = cssObject[uniqueClassNames[i]];
+    atomicClassNames.push(createAtomicClassName(css));
     i++;
   }
   return atomicClassNames.join(" ");

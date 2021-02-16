@@ -1,4 +1,4 @@
-import { getAtomicClassNames, getUniqueKeysFromArray } from "../utils";
+import {getAtomicClassNames, getUniqueKeysFromArray} from "../utils";
 
 describe("Utils of fly-jss", () => {
   it("should get keys not repeating", () => {
