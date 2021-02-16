@@ -17,20 +17,20 @@ import fly from "fly-jss";
 
 const styles = fly.create({
  primary: {
-	background: "blue",
-	color: "white",
+  background: "blue",
+  color: "white",
  },
  flat: {
-	color: "blue",
-	border: "2px solid blue",
+  color: "blue",
+  border: "2px solid blue",
  },
 });
 
 function App() {
  return (
   <div>
-   <button className={styles.props("primary")}>PRIMARY BUTTON</button>
-   <button className={styles.props("flat")}>FLAT BUTTON</button>
+    <button className={styles.props("primary")}>Primary button</button>
+    <button className={styles.props("flat")}>Flat button</button>
   </div>
  );
 }
@@ -42,20 +42,21 @@ import fly from "fly-jss";
 
 const styles = fly.create({
  title: ({ fontSize }) => ({
-	fontWeight: "bold",
-	fontSize,
- }),
+  fontSize,
+  fontWeight: "bold",
+ })
 });
 
 function App() {
  return (
   <div>
-   <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
+    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
   </div>
  );
 }
 export default App;
 ```
+
 
 The project uses below [CXS](https://github.com/cxs-css/cxs), a library with high performance, deduplicates repeated styles and zero dependencies.
 If you wank to know most about this subject, in the next link [Atomic CSS-in-JS] you can learn how work it methodology.
