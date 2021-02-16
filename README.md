@@ -29,8 +29,8 @@ const styles = fly.create({
 function App() {
  return (
   <div>
-	 <button className={styles("primary")}>PRIMARY BUTTON</button>
-	 <button className={styles("flat")}>FLAT BUTTON</button>
+   <button className={styles.props("primary")}>PRIMARY BUTTON</button>
+   <button className={styles.props("flat")}>FLAT BUTTON</button>
   </div>
  );
 }
@@ -48,15 +48,10 @@ const styles = fly.create({
 });
 
 function App() {
-	return (
-	 <div>
-		<p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
-	 </div>
-	);
  return (
-	<div>
-	 <p classNames={styles.title({ fontSize: "2rem" })}>Title 1</p>
-	</div>
+  <div>
+   <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
+  </div>
  );
 }
 export default App;
