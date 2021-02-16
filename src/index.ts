@@ -1,4 +1,4 @@
-import { IFlyJSS } from "./types";
+import { DynamicProps, IFlyJSS } from "./types";
 import {
   createAtomicClassName,
   getAtomicClassNames,
@@ -18,13 +18,11 @@ const fly: IFlyJSS = {
     };
 
     const dynamicClassNames = (() => {
-      let dynamicFunctions: any = {};
+      const dynamicFunctions: DynamicProps<typeof classes> = {};
       for (const key of Object.keys(classes)) {
         if (typeof classes[key] === "function") {
-          dynamicFunctions = {
-            [key]: (props) => {
-              return createAtomicClassName(classes[key](props));
-            },
+          dynamicFunctions[key] = (props) => {
+            return createAtomicClassName(classes[key](props));
           };
         }
       }

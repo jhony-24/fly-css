@@ -12,6 +12,10 @@ export type ItemClassName<T> = {
   [key in keyof T]: CSSObject | ((props: CSSObject) => CSSObject);
 };
 
+export type DynamicProps<T> = {
+  [key in keyof T]?: (props?: Record<string, string | number>) => string;
+};
+
 /**
  * Base structure of object Fly-JSS
  */
@@ -23,8 +27,6 @@ export interface IFlyJSS {
     classes: ItemClassName<T>
   ): {
     props?: GetClassNames<keyof typeof classes>;
-    dynamic?: {
-      [key in keyof T]?: (props?: Record<string, string | number>) => void;
-    };
+    dynamic?: DynamicProps<T>;
   };
 }
