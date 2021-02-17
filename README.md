@@ -12,31 +12,45 @@ $ npm i add fly-jss
 
 ## Usage
 
+The main way to use styles is instancing the method **create** of module. After whe use the method props to pass arguments.
+
 ```javascript
 import fly from "fly-jss";
 
 const styles = fly.create({
  primary: {
   background: "blue",
-  color: "white",
  },
  flat: {
-  color: "blue",
-  border: "2px solid blue",
+  border: "2px solid aqua",
  },
+ text : {
+   color : "white"
+ }
 });
 
-function App() {
- return (
-  <div>
-    <button className={styles.props("primary")}>Primary button</button>
-    <button className={styles.props("flat")}>Flat button</button>
-  </div>
- );
+
+function A() {
+  return(
+    <button className={styles.props("primary","text")}>Primary button</button>
+  )
 }
-export default App;
+
+function B() {
+  return(
+    <button className={styles.props({
+      primary : isPrimary,
+      flat : isFlat,
+    })}>
+     Dynamic button
+    </button>
+  )
+}
+
 ```
 
+
+Whe can create dynamic styles using a method in a property.
 ```javascript
 import fly from "fly-jss";
 
