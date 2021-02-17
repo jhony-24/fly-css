@@ -7,7 +7,7 @@ Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Faceboo
 To use the library you need to install the package typing the next command.
 
 ```console
-$ npm i add fly-jss
+$ npm i fly-jss
 ```
 
 ## Usage
@@ -17,12 +17,13 @@ The main way to use styles is instancing the method **create** of module. After 
 ```javascript
 import fly from "fly-jss";
 
+// Create base styles
 const styles = fly.create({
  primary: {
-  background: "blue",
+   background: "blue",
  },
  flat: {
-  border: "2px solid aqua",
+   border: "2px solid aqua",
  },
  text : {
    color : "white"
@@ -30,12 +31,15 @@ const styles = fly.create({
 });
 
 
+// Using styles passing arguments
 function A() {
   return(
     <button className={styles.props("primary","text")}>Primary button</button>
   )
 }
 
+// Passing arguments how object
+// the names are key of styles created, if the value is true it class will be added.
 function B() {
   return(
     <button className={styles.props({
@@ -51,13 +55,15 @@ function B() {
 
 
 Whe can create dynamic styles using a method in a property.
+
 ```javascript
 import fly from "fly-jss";
 
+// Create dynamic base styles
 const styles = fly.create({
  title: ({ fontSize }) => ({
-  fontSize,
-  fontWeight: "bold",
+   fontSize,
+   fontWeight: "bold",
  })
 });
 
@@ -73,4 +79,4 @@ export default App;
 
 
 The project uses below [CXS](https://github.com/cxs-css/cxs), a library with high performance, deduplicates repeated styles and zero dependencies.
-If you wank to know most about this subject, in the next link [Atomic CSS-in-JS] you can learn how work it methodology.
+If you wank to know most about this subject, in the next link [Atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) you can learn how work it methodology.
