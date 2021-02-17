@@ -12,7 +12,7 @@ describe("Fly-jss", () => {
         color: "blue",
         fontSize: "2em",
       },
-      floating: ({ background }) => ({
+      floating: ({background}) => ({
         background,
       }),
     });

@@ -13,6 +13,6 @@
 		"moduleResolution": "Node",  
 		"esModuleInterop": true,   
   },
-	"include": ["./src/**/*"],
-	"exclude": ["node_modules","tests"]
+	"include": ["./src/**/*.ts"],
+	"exclude": ["node_modules","./src/__tests__"]
 }

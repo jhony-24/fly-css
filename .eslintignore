@@ -3,7 +3,6 @@ dist
 .all-contributorsrc
 .editorconfig
 .gitignore
-webpack.config.js
 .editorconfig
 tsconfig.json
 README.md
