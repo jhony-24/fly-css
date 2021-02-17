@@ -1,6 +1,6 @@
 # <p align="center"> Fly-JSS </p>
 
-Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook.
+Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook to prevent duplication of class names.
 
 ## Installation
 
@@ -21,30 +21,44 @@ import fly from "fly-jss";
 const styles = fly.create({
  primary: {
    background: "blue",
+   borderRadius : "20px",
  },
  flat: {
    border: "2px solid aqua",
  },
  text : {
-   color : "white"
+   color : "red",
  }
 });
 
 
-// Using styles passing arguments
+/**
+ * Using styles passing arguments
+ * Result
+ * .x1 { background:blue; }
+ * .x2 { border-radius:20px; }
+ * .x3 { color:red; }
+ */
 function A() {
   return(
-    <button className={styles.props("primary","text")}>Primary button</button>
+    <div> 
+      <button className={styles.props("primary","text")}>Primary button</button>
+      <button className={styles.props("text")}>Secondary button</button>
+    </div>
   )
 }
 
-// Passing arguments how object
-// the names are key of styles created, if the value is true it class will be added.
+/**
+ * Passing arguments how object
+ * the names are key of styles created, if the value is true it class will be added.
+ * Result:
+ * .x5 { border:2px solid aqua; }
+ */
 function B() {
   return(
     <button className={styles.props({
-      primary : isPrimary,
-      flat : isFlat,
+      primary : false,
+      flat : true,
     })}>
      Dynamic button
     </button>
@@ -67,9 +81,15 @@ const styles = fly.create({
  })
 });
 
+/**
+ * Prevent duplication of class names generated
+ * Result:
+ * .x6 { font-size:2rem; }
+ */
 function App() {
  return (
   <div>
+    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
     <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
   </div>
  );
