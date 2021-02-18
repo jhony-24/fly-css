@@ -12,7 +12,7 @@ describe("Fly-jss", () => {
         color: "blue",
         fontSize: "2em",
       },
-      floating: ({background}) => ({
+      floating: ({ background }) => ({
         background,
       }),
     });
@@ -31,13 +31,21 @@ describe("Fly-jss", () => {
       expect(styles.props(false, null, undefined)).toBe("");
     });
 
-    describe('Use of "dynamics"', () => {
-      it("should get correct class names", () => {
-        const getClassNames = styles.dynamic.floating({
-          background: " blue",
-        });
-        expect(getClassNames.split(" ")).toHaveLength(1);
+    it("should get one class name from property title", () => {
+      const objectProps = styles.props({
+        title: true,
+        button: false,
       });
+      expect(objectProps.split(" ")).toHaveLength(1);
+    });
+  });
+
+  describe('Use of "dynamics"', () => {
+    it("should get correct class names", () => {
+      const getClassNames = styles.dynamic.floating({
+        background: " blue",
+      });
+      expect(getClassNames.split(" ")).toHaveLength(1);
     });
   });
 });

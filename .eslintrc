@@ -26,6 +26,8 @@
 			"space-before-blocks": "error",
 			"no-duplicate-imports": "error",
 			"no-var": "error",
-			"@typescript-eslint/explicit-module-boundary-types": "off"
+            "max-len":["error",{"code":600}],
+			"@typescript-eslint/explicit-module-boundary-types": "off",
+            "array-bracket-spacing":"error"
     }
 }

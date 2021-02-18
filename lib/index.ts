@@ -9,11 +9,23 @@ import {
 const fly: IFlyJSS = {
   create: (classes) => {
     /**
-     * Use the classes created pass by keys by arguments
-     * Example: styles.props("a")
+     * Use the classes created pass keys by arguments or a single object
+     * Example:
+     * styles.props("a")
+     * styles.props({ a: true })
      */
     const propsClassNames = (...keyClassNames) => {
-      const uniqueKeysFromString = getUniqueKeysFromArray(keyClassNames);
+      const [firstValue] = keyClassNames;
+      let normalizeClassNames = keyClassNames;
+      if (typeof firstValue === "object") {
+        const getKeysWithTrueProperty = Object.entries(firstValue)
+          .filter(([, state]) => state)
+          .map(([key]: [string, boolean]) => {
+            return key;
+          });
+        normalizeClassNames = getKeysWithTrueProperty;
+      }
+      const uniqueKeysFromString = getUniqueKeysFromArray(normalizeClassNames);
       const atomicClassNames = getAtomicClassNames(
         classes,
         ...uniqueKeysFromString
