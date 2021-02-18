@@ -6,3 +6,4 @@ dist
 .editorconfig
 tsconfig.json
 README.md
+.circleci

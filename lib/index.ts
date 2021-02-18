@@ -1,4 +1,4 @@
-import {DynamicProps, IFlyJSS} from "./types";
+import { DynamicProps, IFlyJSS } from "./types";
 import {
   createAtomicClassName,
   getAtomicClassNames,

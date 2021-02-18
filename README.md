@@ -12,7 +12,7 @@ $ npm i fly-jss
 
 ## Usage
 
-The main way to use styles is instancing the method **create** of module. After whe use the method props to pass arguments.
+The main way to use styles is instancing the method **create** of module. After we use the method props to pass arguments.
 
 ```javascript
 import fly from "fly-jss";
