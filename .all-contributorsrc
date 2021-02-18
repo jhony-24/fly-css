@@ -1,0 +1,26 @@
+{
+  "projectName": "fly-jss",
+  "projectOwner": "jhony-24",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "jhony-24",
+      "name": "Jhony Vega",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55319455?v=4",
+      "profile": "https://jhonyvega.com/",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
