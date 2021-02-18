@@ -12,21 +12,23 @@
     "lint:fix": "npx eslint --fix ./lib/**/*",
     "test": "npx jest",
     "test:watch": "npx jest --watch",
-    "dev:postinstall": "husky install",
-    "husky:pre-commit": "npx husky add .husky/pre-commit \"npm run lint:fix\""
+    "init:postinstall": "npx husky install",
+    "husky:pre-commit": "npx husky add .husky/pre-commit \"npm run lint:fix\"",
+    "init:all-contributors": "npx all-contributors init"
   },
   "keywords": [
     "CSS in JS",
     "Styled Components",
     "Atomic CSS",
     "Javascript",
-    "Library"
+    "Library",
+    "Typescript"
   ],
   "author": {
     "name": "Jhony Vega",
     "url": "https://github.com/jhony-24"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/cxs": "^6.2.1",
     "cxs": "^6.2.0"
@@ -35,6 +37,7 @@
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
+    "all-contributors-cli": "^6.20.0",
     "chalk": "^4.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.20.0",

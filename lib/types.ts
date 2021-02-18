@@ -1,4 +1,4 @@
-import { CSSObject } from "cxs";
+import {CSSObject} from "cxs";
 
 // Return function to receive custom classNames
 export type GetClassNames<T> = (...keyClassNames: Array<T | boolean>) => string;
