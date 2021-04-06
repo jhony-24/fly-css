@@ -1,5 +1,5 @@
-import cxs, {CSSObject} from "cxs";
-import {ItemClassName} from "./types";
+import cxs, { CSSObject } from "cxs";
+import { ItemClassName } from "./types";
 
 export function getUniqueKeysFromArray(
   classNames:
@@ -36,7 +36,9 @@ export function getAtomicClassNames<T, A>(
   let i = 0;
   while (i < lenUniqueClassNames) {
     const css = cssObject[uniqueClassNames[i]];
-    atomicClassNames.push(createAtomicClassName(css));
+    if (css) {
+      atomicClassNames.push(createAtomicClassName(css));
+    }
     i++;
   }
   return atomicClassNames.join(" ");

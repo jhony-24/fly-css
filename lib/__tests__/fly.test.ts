@@ -38,6 +38,10 @@ describe("Fly-jss", () => {
       });
       expect(objectProps.split(" ")).toHaveLength(1);
     });
+
+    it("should prevent errors when not exists a prop", () => {
+      expect(styles.props("bad-prop")).toBe("");
+    });
   });
 
   describe('Use of "dynamics"', () => {
