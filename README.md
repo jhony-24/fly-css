@@ -1,6 +1,6 @@
 # <p align="center"> Fly-JSS </p>
 
-Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook to prevent duplication of class names.
+Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook to prevent duplication of class names using [CXS](https://github.com/cxs-css/cxs) below.
 
 ## Installation
 
@@ -8,6 +8,7 @@ To use the library you need to install the package typing the next command.
 
 ```console
 $ npm i fly-jss
+$ yarn add fly-jss
 ```
 
 ## Usage
@@ -39,7 +40,7 @@ const styles = fly.create({
  * .x2 { border-radius:20px; }
  * .x3 { color:red; }
  */
-function A() {
+function Buttons() {
   return(
     <div> 
       <button className={styles.props("primary","text")}>Primary button</button>
@@ -54,7 +55,7 @@ function A() {
  * Result:
  * .x5 { border:2px solid aqua; }
  */
-function B() {
+function Button() {
   return(
     <button className={styles.props({
       primary : false,

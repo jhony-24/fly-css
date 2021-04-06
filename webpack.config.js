@@ -6,8 +6,7 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
-    library: "fly",
-    libraryTarget: "umd",
+    libraryTarget: "commonjs",
   },
   mode: "production",
   module: {
@@ -19,7 +18,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js",".jsx"],
   },
   plugins: [new CleanWebpackPlugin()],
 };
