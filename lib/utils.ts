@@ -1,5 +1,5 @@
-import cxs, { CSSObject } from "cxs";
-import { ItemClassName } from "./types";
+import cxs, {CSSObject} from "cxs";
+import {ItemClassName} from "./types";
 
 export function getUniqueKeysFromArray(
   classNames:

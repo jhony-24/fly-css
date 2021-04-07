@@ -90,14 +90,67 @@ const styles = fly.create({
 function App() {
  return (
   <div>
-    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
-    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Title 1</p>
+    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Text 1</p>
+    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Text 2</p>
   </div>
  );
 }
 export default App;
 ```
 
+## API
+
+**create**
+
+Create a instance of styles. You can create some propery how an object or a function to create dynamic styles
+
+```javascript
+const styles = fly.create({
+  prop1 : {
+    // object styles
+  },
+  prop2 : {
+    // object styles
+  },
+  prop3 : (params) => ({
+    // object styles
+  })
+})
+```
+
+**props**
+
+Get a list properties created in the instance of styles. If you want to have a dynamic property this would cause an error.
+
+```javascript
+// Get all properties
+styles.props("prop1", "prop2")
+
+// Get the prop1
+styles.props("prop1", false && "prop2")
+
+// Get props as object
+styles.props({
+  prop1 : true,
+  prop2 : true
+})
+```
+
+**dynamic**
+
+If you want to get a dynamic styles use the prop **dynamic.** before the name of function. 
+
+```javascript
+const styles = fly.create({
+  square : ({ size }) => ({
+    width : size,
+    height: size
+  })
+})
+
+styles.dynamic.square({size:"20px"})
+
+```
 
 The project uses below [CXS](https://github.com/cxs-css/cxs), a library with high performance, deduplicates repeated styles and zero dependencies.
 If you wank to know most about this subject, in the next link [Atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js) you can learn how work it methodology.
