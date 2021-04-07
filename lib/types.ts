@@ -21,5 +21,6 @@ export interface IFlyJSS {
     props?: GetClassNames<keyof typeof classes> &
       ((props: { [key in keyof typeof classes]?: boolean }) => void);
     dynamic?: DynamicProps<T>;
+    compose( ...styles : string[] ) : string
   };
 }

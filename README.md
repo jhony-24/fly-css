@@ -138,18 +138,29 @@ styles.props({
 
 **dynamic**
 
-If you want to get a dynamic styles use the prop **dynamic.** before the name of function. 
+If you want to get a dynamic styles use the prop **dynamic** before the name function. 
 
 ```javascript
 const styles = fly.create({
-  square : ({ size }) => ({
+  square : (size) => ({
     width : size,
     height: size
   })
 })
 
-styles.dynamic.square({size:"20px"})
+styles.dynamic.square("20px")
+```
 
+
+**compose**
+Compose diferents styles
+
+```javascript
+styles.compose(
+  styles.props("prop1"),
+  styles.props("prop2"),
+  styles.dynamic.square("20px")
+)
 ```
 
 The project uses below [CXS](https://github.com/cxs-css/cxs), a library with high performance, deduplicates repeated styles and zero dependencies.

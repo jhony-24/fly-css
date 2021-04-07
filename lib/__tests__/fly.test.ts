@@ -52,4 +52,15 @@ describe("Fly-jss", () => {
       expect(getClassNames.split(" ")).toHaveLength(1);
     });
   });
+
+  describe('Use of "compose"', () => {
+    it("should compose styles and unify", () => {
+      const composeStyles = styles.compose(
+        styles.props("title"),
+        styles.props("button")
+      )
+      expect(composeStyles.split(" ")).toHaveLength(3);
+    })
+  })
+  
 });

@@ -48,10 +48,15 @@ const fly: IFlyJSS = {
       }
       return dynamicFunctions;
     })();
+    
+    const compose = (...styles) => {
+      return styles.join(" ");
+    }
 
     return {
       props: propsClassNames,
       dynamic: dynamicClassNames,
+      compose,
     };
   },
 };
