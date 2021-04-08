@@ -151,8 +151,8 @@ const styles = fly.create({
 styles.dynamic.square("20px")
 ```
 
-
 **compose**
+
 Compose diferents styles
 
 ```javascript
