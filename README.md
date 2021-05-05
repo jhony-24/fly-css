@@ -1,4 +1,4 @@
-# <p align="center"> Fly-JSS </p>
+<h1 align="center"> Fly-JSS </h1>
 
 Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook to prevent duplication of class names using [CXS](https://github.com/cxs-css/cxs) below.
 
@@ -14,6 +14,8 @@ $ yarn add fly-jss
 ## Usage
 
 The main way to use styles is instancing the method **create** of module. After we use the method props to pass arguments.
+You can see more [examples here](https://codesandbox.io/s/fly-jss-css-in-js-wgrrc).
+
 
 ```javascript
 import fly from "fly-jss";
