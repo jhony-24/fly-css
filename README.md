@@ -45,8 +45,8 @@ const styles = fly.create({
 function Buttons() {
   return(
     <div> 
-      <button className={styles.props("primary","text")}>Primary button</button>
-      <button className={styles.props("text")}>Secondary button</button>
+      <button className={styles("primary","text")}>Primary button</button>
+      <button className={styles("text")}>Secondary button</button>
     </div>
   )
 }
@@ -59,7 +59,7 @@ function Buttons() {
  */
 function Button() {
   return(
-    <button className={styles.props({
+    <button className={styles({
       primary : false,
       flat : true,
     })}>
@@ -78,8 +78,8 @@ import fly from "fly-jss";
 
 // Create dynamic base styles
 const styles = fly.create({
- title: ({ fontSize }) => ({
-   fontSize,
+ title: ({ size }) => ({
+   fontSize : size,
    fontWeight: "bold",
  })
 });
@@ -90,10 +90,20 @@ const styles = fly.create({
  * .x6 { font-size:2rem; }
  */
 function App() {
+  const styles1 = styles({
+    title : {
+      size : "10px",
+    },
+  });
+  const styles2 = styles({
+    title : {
+      size : "2rem",
+    },
+  }) 
  return (
   <div>
-    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Text 1</p>
-    <p classNames={styles.dynamic.title({ fontSize: "2rem" })}>Text 2</p>
+    <p classNames={styles1}>Text 1</p>
+    <p classNames={styles2}>Text 2</p>
   </div>
  );
 }
@@ -126,13 +136,13 @@ Get a list properties created in the instance of styles. If you want to have a d
 
 ```javascript
 // Get all properties
-styles.props("prop1", "prop2")
+styles("prop1", "prop2")
 
 // Get the prop1
-styles.props("prop1", false && "prop2")
+styles("prop1", false && "prop2")
 
 // Get props as object
-styles.props({
+styles({
   prop1 : true,
   prop2 : true
 })
@@ -150,7 +160,9 @@ const styles = fly.create({
   })
 })
 
-styles.dynamic.square("20px")
+styles({
+  square: "20px"
+})
 ```
 
 **compose**
@@ -159,9 +171,11 @@ Compose diferents styles
 
 ```javascript
 styles.compose(
-  styles.props("prop1"),
-  styles.props("prop2"),
-  styles.dynamic.square("20px")
+  styles("prop1"),
+  styles("prop2"),
+  styles({
+    square : "20px"
+  })
 )
 ```
 
