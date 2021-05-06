@@ -100,13 +100,15 @@ function App() {
       size : "2rem",
     },
   }) 
- return (
-  <div>
-    <p classNames={styles1}>Text 1</p>
-    <p classNames={styles2}>Text 2</p>
-  </div>
- );
+
+  return (
+    <div>
+      <p classNames={styles1}>Text 1</p>
+      <p classNames={styles2}>Text 2</p>
+    </div>
+  );
 }
+
 export default App;
 ```
 
@@ -130,7 +132,7 @@ const styles = fly.create({
 })
 ```
 
-**props**
+**styles(...name,{...name})**
 
 Get a list properties created in the instance of styles. If you want to have a dynamic property this would cause an error.
 
@@ -148,9 +150,7 @@ styles({
 })
 ```
 
-**dynamic**
-
-If you want to get a dynamic styles use the prop **dynamic** before the name function. 
+If you want to get a dynamic styles use the self name and pass a object with the name and value. 
 
 ```javascript
 const styles = fly.create({
@@ -165,7 +165,7 @@ styles({
 })
 ```
 
-**compose**
+**compose(...styles)**
 
 Compose diferents styles
 
