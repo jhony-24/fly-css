@@ -114,7 +114,7 @@ export default App;
 
 ## API
 
-**create**
+### `create()`
 
 Create a instance of styles. You can create some propery how an object or a function to create dynamic styles
 
@@ -132,7 +132,7 @@ const styles = fly.create({
 })
 ```
 
-**styles(...name,{...name})**
+### `styles(...name, {...name} )`
 
 Get a list properties created in the instance of styles. If you want to have a dynamic property this would cause an error.
 
@@ -165,7 +165,7 @@ styles({
 })
 ```
 
-**compose(...styles)**
+### `compose(...styles)`
 
 Compose diferents styles
 
