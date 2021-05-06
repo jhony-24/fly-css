@@ -170,7 +170,9 @@ styles({
 Compose diferents styles
 
 ```javascript
-styles.compose(
+import fly from "fly-jss"
+
+fly.compose(
   styles("prop1"),
   styles("prop2"),
   styles({
