@@ -77,7 +77,7 @@ Whe can create dynamic styles using a method in a property.
 import fly from "fly-jss";
 
 // Create dynamic base styles
-const styles = fly.create({
+const styles = fly.createDynamic({
  title: ({ size }) => ({
    fontSize : size,
    fontWeight: "bold",
@@ -116,7 +116,7 @@ export default App;
 
 ### `create()`
 
-Create a instance of styles. You can create some propery how an object or a function to create dynamic styles
+Create a instance of styles. You can create some property how an object.
 
 ```javascript
 const styles = fly.create({
@@ -126,6 +126,15 @@ const styles = fly.create({
   prop2 : {
     // object styles
   },
+})
+```
+
+### `createDynamic()`
+
+Create a instance of dynamic styles. You can create all properties how a function.
+
+```javascript
+const styles = fly.createDynamic({
   prop3 : (params) => ({
     // object styles
   })
@@ -153,7 +162,7 @@ styles({
 If you want to get a dynamic styles use the self name and pass a object with the name and value. 
 
 ```javascript
-const styles = fly.create({
+const styles = fly.createDynamic({
   square : (size) => ({
     width : size,
     height: size
