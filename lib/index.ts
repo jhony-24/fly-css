@@ -50,10 +50,11 @@ const fly: IFlyJSS = {
     })();
     
 
-    return {
-      props: propsClassNames,
-      dynamic: dynamicClassNames,
-    };
+    return propsClassNames;
+  },
+  createDynamic : (classes) => {
+    console.log(classes);
+    return (e) => ""
   },
   compose : (...styles) => {
     return styles.join(" ");

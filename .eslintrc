@@ -25,6 +25,8 @@
 			"object-curly-spacing" : "warn",
 			"space-before-blocks": "error",
 			"no-duplicate-imports": "error",
+            "@typescript-eslint/no-explicit-any" : "off",
+            "@typescript-eslint/ban-types" : "off",
 			"no-var": "error",
             "max-len":["error",{"code":600}],
 			"@typescript-eslint/explicit-module-boundary-types": "off",
