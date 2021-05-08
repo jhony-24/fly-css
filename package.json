@@ -1,6 +1,6 @@
 {
   "name": "fly-jss",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Optimized library to create Atomic CSS IN JS inspired in Stylex CSS at Facebook using CXS below",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
