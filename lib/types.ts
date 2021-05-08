@@ -22,7 +22,7 @@ export type ItemClassName<T> = {
 // Return a object styles css
 export type GetDynamicClassnames<T, K extends keyof T> = Record<
   K,
-  (e?: object) => CSSObject
+  (e?: any) => CSSObject
 >;
 
 // Get types of properties function

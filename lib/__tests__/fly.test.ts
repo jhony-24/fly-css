@@ -12,9 +12,6 @@ describe("Fly-jss", () => {
         color: "blue",
         fontSize: "2em",
       },
-      floating: ({background}) => ({
-        background,
-      }),
     });
   });
 
@@ -41,17 +38,6 @@ describe("Fly-jss", () => {
 
     it("should prevent errors when not exists a prop", () => {
       expect(styles("bad-prop")).toBe("");
-    });
-  });
-
-  describe('Use of "dynamics"', () => {
-    it("should get correct class names", () => {
-      const getClassNames = styles({
-        floating : {
-          background: " blue",
-        }
-      });
-      expect(getClassNames.split(" ")).toHaveLength(1);
     });
   });
 
