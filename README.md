@@ -78,33 +78,26 @@ import fly from "fly-jss";
 
 // Create dynamic base styles
 const styles = fly.createDynamic({
- title: ({ size }) => ({
-   fontSize : size,
-   fontWeight: "bold",
- })
+  button: ([r, g, b]) => ({
+    background: `rgb(${r},${g},${b})`
+  })
 });
 
 /**
  * Prevent duplication of class names generated
- * Result:
- * .x6 { font-size:2rem; }
  */
 function App() {
-  const styles1 = styles({
-    title : {
-      size : "10px",
-    },
+  const button1 = styles({
+    button: [40, 50, 200]
   });
-  const styles2 = styles({
-    title : {
-      size : "2rem",
-    },
-  }) 
+  const button2 = styles({
+    button: [100, 250, 20]
+  });
 
   return (
     <div>
-      <p classNames={styles1}>Text 1</p>
-      <p classNames={styles2}>Text 2</p>
+      <button className={button1}>BUTTON 1</button>
+      <button className={button2}>BUTTON 2</button>
     </div>
   );
 }

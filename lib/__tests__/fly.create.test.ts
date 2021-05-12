@@ -38,4 +38,5 @@ describe("Fly-jss / create", () => {
   it("should prevent errors when not exists a prop", () => {
     expect(styles("bad-prop")).toBe("");
   });
+
 });
