@@ -1,4 +1,4 @@
-import {getAtomicClassNames, getUniqueKeysFromArray} from "../utils";
+import {getAtomicClassNames, getUniqueKeysFromArray, cssToObject} from "../utils";
 
 describe("Utils of fly-jss", () => {
   it("should get keys not repeating", () => {
@@ -66,4 +66,21 @@ describe("Utils of fly-jss", () => {
     const classNames = getAtomicClassNames(styles, ...getParams);
     expect(classNames).toHaveLength(0);
   });
+
+
+  it("Should get a object from css string", () => {
+    const makeStyle = `
+      background:red;
+      color:blue;
+      margin:0px;
+    `
+    const expectedStyle = {
+      background : "red",
+      color : "blue",
+      margin : "0px",
+    }
+    const parseCSS = cssToObject(makeStyle);
+    expect(parseCSS).toEqual(expectedStyle);
+  })
+
 });

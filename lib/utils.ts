@@ -44,7 +44,7 @@ export function getAtomicClassNames<T, A>(
   return atomicClassNames.join(" ");
 }
 
-export function cssToObject(cssString: string) {
+export function cssToObject(cssString: string) : object {
   const normalizeCSString = cssString
   .replace(/;/g, ",")
   .replace(/(\w*)\s?:\s?(\w*)/g, '"$1":"$2"')
