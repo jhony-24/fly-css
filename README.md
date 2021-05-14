@@ -20,7 +20,7 @@ You can see more [examples here](https://codesandbox.io/s/fly-jss-css-in-js-wgrr
 ```javascript
 import fly from "fly-jss";
 
-// Create base styles
+// Create base styles in object
 const styles = fly.create({
  primary: {
    background: "blue",
@@ -34,13 +34,19 @@ const styles = fly.create({
  }
 });
 
+// Create base styles as string
+const styles = fly.create({
+ primary: `
+   background: blue;
+   borderRadius: 20px;
+ `,
+ flat: `border: 2px solid aqua`,
+ text: `color: red` 
+});
+
 
 /**
  * Using styles passing arguments
- * Result
- * .x1 { background:blue; }
- * .x2 { border-radius:20px; }
- * .x3 { color:red; }
  */
 function Buttons() {
   return(
@@ -54,8 +60,6 @@ function Buttons() {
 /**
  * Passing arguments how object
  * the names are key of styles created, if the value is true it class will be added.
- * Result:
- * .x5 { border:2px solid aqua; }
  */
 function Button() {
   return(
