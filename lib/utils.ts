@@ -43,3 +43,20 @@ export function getAtomicClassNames<T, A>(
   }
   return atomicClassNames.join(" ");
 }
+
+export function cssToObject(cssString: string) {
+  const normalizeCSString = cssString
+  .replace(/;/g, ",")
+  .replace(/(\w*)\s?:\s?(\w*)/g, '"$1":"$2"')
+  .replace(/(\n|\s)/gi, "");
+  const jsonString = `{${normalizeCSString}}`;
+
+  const indexLastComma = jsonString.lastIndexOf(",");
+  const normalizeJsonString =
+    jsonString.substr(0, indexLastComma) +
+    jsonString.substr(indexLastComma + 1);
+
+  const parseString = JSON.parse(normalizeJsonString);
+
+  return parseString;
+}
