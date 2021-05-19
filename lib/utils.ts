@@ -70,6 +70,12 @@ export function css(style : TemplateStringsArray) : CSSObject {
 }
 
 export function camelize(wordString): string {
-
-  return wordString;
+  const wordSplit = wordString.match(/-\w/g);
+  const newWord = wordSplit.reduce((newWord,word) => {
+    const replacementLastLetter = word[1].toUpperCase();
+    const normalize = newWord.replace(word, replacementLastLetter);
+    newWord = normalize;
+    return newWord;
+  },wordString);
+  return newWord.replace(/\w/,(wordString[0] || "").toLowerCase())
 }
