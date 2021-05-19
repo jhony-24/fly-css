@@ -3,6 +3,7 @@ import {
   getAtomicClassNames,
   getUniqueKeysFromArray,
   getUniqueWordsFromString,
+  css,
 } from "./utils";
 
 
@@ -10,30 +11,30 @@ function parseClassnamesFromObject<T,P>(classes: ItemClassName<T>,keys : P[]) {
   const atomicClassNames = getAtomicClassNames(
     classes,
     ...keys
-  );
-  return getUniqueWordsFromString(atomicClassNames); 
-}
-
-const fly: IFlyJSS = {
-  create: (classes) => {
-    /**
-     * Use the classes created pass keys by arguments or a single object
-     * Example:
-     * styles("a")
-     * styles({ a: true })
-     */
-    const propsClassNames = (...keyClassNames) => {
+    );
+    return getUniqueWordsFromString(atomicClassNames); 
+  }
+  
+  const fly: IFlyJSS = {
+    create: (classes) => {
+      /**
+       * Use the classes created pass keys by arguments or a single object
+       * Example:
+       * styles("a")
+       * styles({ a: true })
+       */
+      const propsClassNames = (...keyClassNames) => {
       const [firstValue] = keyClassNames;
       let normalizeClassNames = keyClassNames;
       if (typeof firstValue === "object") {
         const getKeysWithTrueProperty = Object.entries(firstValue)
-          .filter(([, state]) => state)
-          .map(([key]: [string, boolean]) => {
-            return key;
-          });
+        .filter(([, state]) => state)
+        .map(([key]: [string, boolean]) => {
+          return key;
+        });
         normalizeClassNames = getKeysWithTrueProperty;
       }
-
+      
       const uniqueKeysFromString = getUniqueKeysFromArray(normalizeClassNames);
       const parse = parseClassnamesFromObject(classes,uniqueKeysFromString);
       return parse;
@@ -49,13 +50,13 @@ const fly: IFlyJSS = {
      *     size : "20px"
      *   }
      * })
-     */
-    const dynamicClassnames = (keyClassNames = null) => {
-      if(keyClassNames) {
-        const keysOfClassnames = Object.keys(keyClassNames);
-        const dynamicClassnamesCreated : ItemClassName<typeof classes> | {} = {};
+         */
+        const dynamicClassnames = (keyClassNames = null) => {
+          if(keyClassNames) {
+            const keysOfClassnames = Object.keys(keyClassNames);
+            const dynamicClassnamesCreated : ItemClassName<typeof classes> | {} = {};
         for (const key of keysOfClassnames) {
-            const currentCallbackStyle = classes[key]; 
+          const currentCallbackStyle = classes[key]; 
             const valueOfClassname = keyClassNames[key];
             if(valueOfClassname) {
               dynamicClassnamesCreated[key] = currentCallbackStyle(valueOfClassname);
@@ -73,4 +74,5 @@ const fly: IFlyJSS = {
   }
 };
 
+export {css};
 export default fly;

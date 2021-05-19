@@ -60,3 +60,11 @@ export function cssToObject(cssString: string) : object {
 
   return parseString;
 }
+
+
+export function css(style : string[]) : CSSObject {
+  if(style[0] === "") {
+    return {}
+  }
+  return cssToObject(style[0] || "") as CSSObject;
+}
