@@ -39,4 +39,14 @@ describe("Fly-jss / create", () => {
     expect(styles("bad-prop")).toBe("");
   });
 
+  it("should generate only 2 class names", () => {
+    const textStyles = fly.create({
+      title : `
+        background: red;
+        color: blue;
+      `
+    })
+    expect(textStyles("title").split(" ")).toHaveLength(2);
+  });
+
 });
