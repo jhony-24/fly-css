@@ -18,7 +18,7 @@ You can see more [examples here](https://codesandbox.io/s/fly-jss-css-in-js-wgrr
 
 
 ```javascript
-import fly from "fly-jss";
+import fly, { css } from "fly-jss";
 
 // Create base styles in object
 const styles = fly.create({
@@ -36,12 +36,12 @@ const styles = fly.create({
 
 // Create base styles as string
 const styles = fly.create({
- primary: `
+ primary: css`
    background: blue;
    borderRadius: 20px;
  `,
- flat: `border: 2px solid aqua`,
- text: `color: red` 
+ flat: css`border: 2px solid aqua`,
+ text: css`color: red` 
 });
 
 
@@ -170,6 +170,21 @@ styles({
   square: "20px"
 })
 ```
+
+### `css`
+
+Create a string of styles and return an object style parsed
+
+```javascript
+import { css } from "fly-jss"
+
+const styles = css`
+  background:blue;
+  color:white;
+`
+console.log(styles)
+```
+
 
 ### `compose(...styles)`
 
