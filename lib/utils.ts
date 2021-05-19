@@ -68,3 +68,8 @@ export function css(style : TemplateStringsArray) : CSSObject {
   }
   return cssToObject(style[0] || "") as CSSObject;
 }
+
+export function camelize(wordString): string {
+
+  return wordString;
+}

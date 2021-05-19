@@ -1,4 +1,4 @@
-import {getAtomicClassNames, getUniqueKeysFromArray, cssToObject} from "../utils";
+import {getAtomicClassNames, getUniqueKeysFromArray, cssToObject, camelize} from "../utils";
 
 describe("Utils of fly-jss", () => {
   it("should get keys not repeating", () => {
@@ -82,5 +82,12 @@ describe("Utils of fly-jss", () => {
     const parseCSS = cssToObject(makeStyle);
     expect(parseCSS).toEqual(expectedStyle);
   })
+
+
+  it("should camelize a letter of type word1-word2-word3",() => {
+    const word = "border-radius";
+    const wordExpected = "borderRadius";
+    expect(camelize(word)).toBe(wordExpected);
+  });
 
 });
