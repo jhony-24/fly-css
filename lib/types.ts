@@ -16,13 +16,13 @@ export type GetObjectClassNames<T> = (
 
 // Create object with key and CSS properties
 export type ItemClassName<T> = {
-  [key in keyof T]: CSSObject | ((props: CSSObject) => CSSObject);
+  [key in keyof T]: CSSObject | string;
 };
 
 // Return a object styles css
 export type GetDynamicClassnames<T, K extends keyof T> = Record<
   K,
-  (e?: any) => CSSObject
+  (e?: any) => CSSObject | string
 >;
 
 // Get types of properties function
