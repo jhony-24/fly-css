@@ -62,7 +62,7 @@ export function cssToObject(cssString: string) : object {
 }
 
 
-export function css(style : string[]) : CSSObject {
+export function css(style : TemplateStringsArray) : CSSObject {
   if(style[0] === "") {
     return {}
   }

@@ -1,4 +1,4 @@
-import fly from "..";
+import fly, {css} from "..";
 
 describe("Fly-jss / create", () => {
   let styles;
@@ -41,11 +41,11 @@ describe("Fly-jss / create", () => {
 
   it("should generate only 2 class names", () => {
     const textStyles = fly.create({
-      title : `
+      title : css`
         background: red;
         color: blue;
       `
-    })
+    });
     expect(textStyles("title").split(" ")).toHaveLength(2);
   });
 
