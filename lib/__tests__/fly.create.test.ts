@@ -43,7 +43,7 @@ describe("Fly-jss / create", () => {
     const textStyles = fly.create({
       title : css`
         background: red;
-        color: blue;
+        border-radius: 2px solid blue;
       `
     });
     expect(textStyles("title").split(" ")).toHaveLength(2);

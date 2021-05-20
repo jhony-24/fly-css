@@ -47,7 +47,7 @@ export function getAtomicClassNames<T, A>(
 export function cssToObject(cssString: string) : object {
   const normalizeCSString = cssString
   .replace(/;/g, ",")
-  .replace(/(\w*)\s?:\s?(\w*)/g, '"$1":"$2"')
+  .replace(/([a-z]*-?[a-z]*?)\s?:\s?(\w*)/g, '"$1":"$2"')
   .replace(/(\n|\s)/gi, "");
   const jsonString = `{${normalizeCSString}}`;
 

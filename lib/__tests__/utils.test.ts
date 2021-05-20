@@ -72,12 +72,12 @@ describe("Utils of fly-jss", () => {
     const makeStyle = `
       background:red;
       color:blue;
-      margin:0px;
+      border-radius:10px;
     `
     const expectedStyle = {
       background : "red",
       color : "blue",
-      margin : "0px",
+      borderRadius : "10px",
     }
     const parseCSS = cssToObject(makeStyle);
     expect(parseCSS).toEqual(expectedStyle);
