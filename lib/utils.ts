@@ -45,6 +45,11 @@ export function getAtomicClassNames<T, A>(
   return atomicClassNames.join(" ");
 }
 
+
+export function hasHyphen(value : string) : boolean {
+  return value.indexOf("-") !== -1;
+}
+
 export function camelize(wordString): string {
   const wordSplit = wordString.match(/-\w/g);
   const newWord = wordSplit.reduce((newWord, word) => {
@@ -59,10 +64,12 @@ export function camelize(wordString): string {
 export function cssToObject(cssString: string): object {
   const styles = {};
   const inlineStyles = parse(cssString);
-  for (const i in inlineStyles) {
+  const len = inlineStyles.length;
+  for (let i = 0; i < len; i++) {
     const {property, value} = inlineStyles[i];
     styles[property] = value;
   }
+
   return styles;
 }
 
