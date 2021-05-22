@@ -67,7 +67,8 @@ export function cssToObject(cssString: string): object {
   const len = inlineStyles.length;
   for (let i = 0; i < len; i++) {
     const {property, value} = inlineStyles[i];
-    styles[property] = value;
+    const normalizePropery = hasHyphen(property) ? camelize(property) : property;
+    styles[normalizePropery] = value;
   }
 
   return styles;
