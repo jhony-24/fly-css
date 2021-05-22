@@ -67,16 +67,17 @@ export function cssToObject(cssString: string): object {
   const len = inlineStyles.length;
   for (let i = 0; i < len; i++) {
     const {property, value} = inlineStyles[i];
-    const normalizePropery = hasHyphen(property) ? camelize(property) : property;
-    styles[normalizePropery] = value;
+    const normalizeProperty = hasHyphen(property) ? camelize(property) : property;
+    styles[normalizeProperty] = value;
   }
 
   return styles;
 }
 
-export function css(style: TemplateStringsArray): CSSObject {
-  if (style[0] === "") {
-    return {};
-  }
-  return cssToObject(style[0] || "") as CSSObject;
+export function css(style: TemplateStringsArray,...params : any[]): CSSObject {
+  const normalizeTemplateString = style.map((currentStyle,index) => {
+    return `${currentStyle}${params[index] || ""};`
+  })
+  const joinStyle = normalizeTemplateString.join("")
+  return cssToObject(joinStyle || "") as CSSObject;
 }
