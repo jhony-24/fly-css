@@ -37,7 +37,8 @@
   "license": "MIT",
   "dependencies": {
     "@types/cxs": "^6.2.1",
-    "cxs": "^6.2.0"
+    "cxs": "^6.2.0",
+    "inline-style-parser": "^0.1.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",

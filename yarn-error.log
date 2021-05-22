@@ -1,0 +1,100 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add style-to-objec
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\installed\Java\bin;D:\installed\Git\cmd;D:\installed\Xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\installed\Python\Scripts\;D:\installed\Python\;C:\Users\jhony\AppData\Local\Microsoft\WindowsApps;C:\Users\jhony\AppData\Roaming\Composer\vendor\bin;C:\Users\jhony\AppData\Local\Yarn\bin;C:\Users\jhony\AppData\Roaming\npm;
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  14.15.5
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/style-to-objec: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66097:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (internal/streams/readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "fly-jss",
+    "version": "2.1.0",
+    "description": "Optimized library to create Atomic CSS IN JS inspired in Stylex CSS at Facebook using CXS below",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "homepage": "https://github.com/jhony-24/fly-jss",
+    "scripts": {
+      "build": "npx webpack",
+      "dev": "npx nodemon lib/index.ts",
+      "lint": "npx eslint ./lib/**/*",
+      "lint:fix": "npx eslint --fix ./lib/**/*",
+      "test": "npx jest",
+      "test:watch": "npx jest --watch",
+      "init:postinstall": "npx husky install",
+      "husky:pre-commit": "npx husky add .husky/pre-commit \"npm run lint:fix\"",
+      "init:all-contributors": "npx all-contributors init"
+    },
+    "files": [
+      "dist",
+      "package.json",
+      "README.md",
+      "LICENSE"
+    ],
+    "keywords": [
+      "CSS in JS",
+      "Styled Components",
+      "Atomic CSS",
+      "Javascript",
+      "Library",
+      "Typescript"
+    ],
+    "author": {
+      "name": "Jhony Vega",
+      "url": "https://github.com/jhony-24"
+    },
+    "license": "MIT",
+    "dependencies": {
+      "@types/cxs": "^6.2.1",
+      "cxs": "^6.2.0"
+    },
+    "devDependencies": {
+      "@types/jest": "^26.0.20",
+      "@typescript-eslint/eslint-plugin": "^4.15.0",
+      "@typescript-eslint/parser": "^4.15.0",
+      "all-contributors-cli": "^6.20.0",
+      "chalk": "^4.1.0",
+      "clean-webpack-plugin": "^3.0.0",
+      "eslint": "^7.20.0",
+      "eslint-config-prettier": "^7.2.0",
+      "eslint-plugin-prettier": "^3.3.1",
+      "husky": "^5.0.9",
+      "jest": "^26.6.3",
+      "nodemon": "^2.0.7",
+      "prettier": "^2.2.1",
+      "stylelint": "^13.13.1",
+      "stylelint-config-standard": "^22.0.0",
+      "ts-jest": "^26.5.1",
+      "ts-loader": "^8.0.17",
+      "ts-node": "^9.1.1",
+      "typescript": "^4.1.5",
+      "webpack": "^5.30.0",
+      "webpack-cli": "^4.6.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

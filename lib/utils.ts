@@ -1,5 +1,6 @@
 import cxs, {CSSObject} from "cxs";
 import {ItemClassName} from "./types";
+import parse from "inline-style-parser";
 
 export function getUniqueKeysFromArray(
   classNames:
@@ -44,38 +45,30 @@ export function getAtomicClassNames<T, A>(
   return atomicClassNames.join(" ");
 }
 
-export function cssToObject(cssString: string) : object {
-  const normalizeCSString = cssString
-  .replace(/;/g, ",")
-  .replace(/([a-z]*-?[a-z]*?)\s?:\s?(\w*)/g, '"$1":"$2"')
-  .replace(/(\n|\s)/gi, "");
-  const jsonString = `{${normalizeCSString}}`;
-
-  const indexLastComma = jsonString.lastIndexOf(",");
-  const normalizeJsonString =
-    jsonString.substr(0, indexLastComma) +
-    jsonString.substr(indexLastComma + 1);
-
-  const parseString = JSON.parse(normalizeJsonString);
-
-  return parseString;
-}
-
-
-export function css(style : TemplateStringsArray) : CSSObject {
-  if(style[0] === "") {
-    return {}
-  }
-  return cssToObject(style[0] || "") as CSSObject;
-}
-
 export function camelize(wordString): string {
   const wordSplit = wordString.match(/-\w/g);
-  const newWord = wordSplit.reduce((newWord,word) => {
+  const newWord = wordSplit.reduce((newWord, word) => {
     const replacementLastLetter = word[1].toUpperCase();
     const normalize = newWord.replace(word, replacementLastLetter);
     newWord = normalize;
     return newWord;
-  },wordString);
-  return newWord.replace(/\w/,(wordString[0] || "").toLowerCase())
+  }, wordString);
+  return newWord.replace(/\w/, (wordString[0] || "").toLowerCase());
+}
+
+export function cssToObject(cssString: string): object {
+  const styles = {};
+  const inlineStyles = parse(cssString);
+  for (const i in inlineStyles) {
+    const {property, value} = inlineStyles[i];
+    styles[property] = value;
+  }
+  return styles;
+}
+
+export function css(style: TemplateStringsArray): CSSObject {
+  if (style[0] === "") {
+    return {};
+  }
+  return cssToObject(style[0] || "") as CSSObject;
 }
