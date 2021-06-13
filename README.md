@@ -2,6 +2,8 @@
 
 Optimized library to create "Atomic CSS in JS" inspired in **Stylex** at Facebook to prevent duplication of class names using [CXS](https://github.com/cxs-css/cxs) below.
 
+**Go to the documentation at [fly-jss](https://jhony-24.github.io/fly-jss-documentation/).**
+
 ## Installation
 
 To use the library you need to install the package typing the next command.
@@ -189,7 +191,7 @@ console.log(styles)
 
 ### `compose(...styles)`
 
-Compose diferents styles
+Compose diferent styles and create a result of class names
 
 ```javascript
 import fly from "fly-jss"
